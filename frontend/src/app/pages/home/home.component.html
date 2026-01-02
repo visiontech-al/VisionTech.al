@@ -1,0 +1,129 @@
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-content fade-in">
+      <h1 class="hero-title">
+        Where your vision becomes
+        <span class="gradient-text">innovative digital reality</span>
+      </h1>
+      <p class="hero-description">
+        VisionTech.al delivers exceptional software development, robust cybersecurity solutions,
+        and comprehensive penetration testing services to help your business thrive in the digital age.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/contact" class="btn btn-primary">Get Started</a>
+        <button class="btn btn-secondary" (click)="scrollToSection('services')">
+          Our Services
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="hero-background">
+    <div class="gradient-overlay"></div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <h2 class="section-title text-center">What We Do</h2>
+    <p class="section-subtitle text-center">
+      Comprehensive technology solutions tailored to your business needs
+    </p>
+
+    @if (loading) {
+      <div class="loading">Loading services...</div>
+    } @else if (error) {
+      <div class="error">{{ error }}</div>
+    } @else {
+      <div class="services-grid">
+        @for (service of services; track service.id) {
+          <div class="service-card card">
+            <div class="service-icon">
+              @switch (service.icon) {
+                @case ('code') {
+                  <span>💻</span>
+                }
+                @case ('shield') {
+                  <span>🛡️</span>
+                }
+                @case ('search') {
+                  <span>🔍</span>
+                }
+                @default {
+                  <span>⚡</span>
+                }
+              }
+            </div>
+            <h3 class="service-title">{{ service.serviceName }}</h3>
+            <p class="service-description">{{ service.description }}</p>
+            @if (service.features && service.features.length > 0) {
+              <ul class="service-features">
+                @for (feature of service.features; track feature) {
+                  <li>{{ feature }}</li>
+                }
+              </ul>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<section class="section projects-section" id="projects">
+  <div class="container">
+    <h2 class="section-title text-center">Recent Projects</h2>
+    <p class="section-subtitle text-center">
+      Explore our portfolio of successful implementations
+    </p>
+
+    @if (loading) {
+      <div class="loading">Loading projects...</div>
+    } @else if (error) {
+      <div class="error">{{ error }}</div>
+    } @else if (projects.length > 0) {
+      <div class="projects-grid">
+        @for (project of projects; track project.id) {
+          <app-project-card [project]="project"></app-project-card>
+        }
+      </div>
+    } @else {
+      <p class="text-center">No projects available at the moment.</p>
+    }
+  </div>
+</section>
+
+<section class="section case-studies-section" id="case-studies">
+  <div class="container">
+    <h2 class="section-title text-center">Case Studies</h2>
+    <p class="section-subtitle text-center">
+      Real results from real clients
+    </p>
+
+    @if (loading) {
+      <div class="loading">Loading case studies...</div>
+    } @else if (error) {
+      <div class="error">{{ error }}</div>
+    } @else if (caseStudies.length > 0) {
+      <div class="case-studies-grid">
+        @for (caseStudy of caseStudies; track caseStudy.id) {
+          <app-case-study-card [caseStudy]="caseStudy"></app-case-study-card>
+        }
+      </div>
+    } @else {
+      <p class="text-center">No case studies available at the moment.</p>
+    }
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">Ready to Transform Your Business?</h2>
+      <p class="cta-description">
+        Let's discuss how VisionTech.al can help you achieve your technology goals.
+      </p>
+      <a routerLink="/contact" class="btn btn-primary">Contact Us Today</a>
+    </div>
+  </div>
+</section>
+

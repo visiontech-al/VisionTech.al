@@ -1,0 +1,204 @@
+@import '../../../styles/_variables';
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  background-image: url('../../../assets/hero-background.jpg');
+  // background: radial-gradient(circle at 20% 50%, rgba(224, 35, 78, 0.15) 0%, transparent 50%),
+  //             radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(5, 5, 5, 0.4) 0%, rgba(30, 30, 30, 0.4) 20%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+  color: $text-primary;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 2rem;
+  }
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  color: $text-secondary;
+  line-height: 1.6;
+  margin-bottom: $spacing-lg;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 1.125rem;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: $spacing-sm;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 2rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: $text-secondary;
+  margin-bottom: $spacing-lg;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+}
+
+.service-card {
+  text-align: center;
+  padding: $spacing-lg;
+}
+
+.service-icon {
+  font-size: 4rem;
+  margin-bottom: $spacing-md;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.service-description {
+  color: $text-secondary;
+  line-height: 1.6;
+  margin-bottom: $spacing-md;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+
+  li {
+    padding: $spacing-xs 0;
+    color: $text-secondary;
+    position: relative;
+    padding-left: 1.5rem;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: $primary-red;
+      font-weight: bold;
+    }
+  }
+}
+
+.projects-section,
+.case-studies-section {
+  background: $secondary-dark;
+}
+
+.projects-grid,
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cta-section {
+  background: linear-gradient(135deg, $primary-red 0%, $accent-purple 100%);
+  border-radius: 16px;
+  margin: $spacing-xl auto;
+  max-width: 900px;
+}
+
+.cta-content {
+  text-align: center;
+  padding: $spacing-lg 0;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: $spacing-sm;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 2rem;
+  }
+}
+
+.cta-description {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: $spacing-lg;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: $spacing-lg;
+  color: $text-secondary;
+}
+
+.error {
+  color: $error;
+}
+

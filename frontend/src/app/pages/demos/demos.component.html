@@ -1,0 +1,77 @@
+<section class="demos-hero section">
+  <div class="container">
+    <div class="demos-header">
+      <h1 class="page-title">Interactive Demos</h1>
+      <p class="page-subtitle">
+        Explore our portfolio through interactive demonstrations. 
+        Experience our solutions firsthand before making a decision.
+      </p>
+    </div>
+
+    @if (categories.length > 0) {
+      <div class="category-filters">
+        <button
+          class="filter-button"
+          [class.active]="selectedCategory === null"
+          (click)="filterByCategory(null)"
+        >
+          All Demos
+        </button>
+        @for (category of categories; track category) {
+          <button
+            class="filter-button"
+            [class.active]="selectedCategory === category"
+            (click)="filterByCategory(category)"
+          >
+            {{ category }}
+          </button>
+        }
+      </div>
+    }
+
+    @if (loading) {
+      <div class="loading">Loading demos...</div>
+    } @else if (error) {
+      <div class="error">{{ error }}</div>
+    } @else if (filteredDemos.length > 0) {
+      <div class="demos-grid">
+        @for (demo of filteredDemos; track demo.id) {
+          <div class="demo-card card">
+            @if (demo.thumbnailUrl) {
+              <div class="demo-thumbnail">
+                <img [src]="demo.thumbnailUrl" [alt]="demo.title" loading="lazy" />
+              </div>
+            }
+            <div class="demo-content">
+              @if (demo.category) {
+                <span class="demo-category">{{ demo.category }}</span>
+              }
+              <h3 class="demo-title">{{ demo.title }}</h3>
+              <p class="demo-description">{{ demo.description }}</p>
+              @if (demo.demoUrl) {
+                <a
+                  [href]="demo.demoUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="demo-link btn btn-primary"
+                >
+                  Try Demo →
+                </a>
+              } @else {
+                <button class="demo-link btn btn-secondary" disabled>
+                  Coming Soon
+                </button>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="no-demos">
+        <p>No demos available in this category at the moment.</p>
+        <p>Check back soon for new interactive demonstrations!</p>
+      </div>
+    }
+  </div>
+</section>
+

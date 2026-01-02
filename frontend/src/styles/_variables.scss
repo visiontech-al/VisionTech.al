@@ -1,0 +1,33 @@
+// VisionTech.al Design System - Inspired by NestJS
+// Color Palette
+$primary-red: #E0234E;
+$primary-dark: #121212;
+$secondary-dark: #1e1e1e;
+$accent-blue: #4A90E2;
+$accent-purple: #8B5CF6;
+$text-primary: #FFFFFF;
+$text-secondary: #B3B3B3;
+$text-muted: #666666;
+$border-color: #333333;
+$success: #10B981;
+$error: #EF4444;
+$warning: #F59E0B;
+
+// Typography
+$font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.6;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 4rem;
+$spacing-xl: 6rem;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+

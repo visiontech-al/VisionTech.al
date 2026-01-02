@@ -1,0 +1,138 @@
+@import '../../../styles/_variables';
+
+.footer {
+  background: $secondary-dark;
+  border-top: 1px solid $border-color;
+  padding: $spacing-xl 0 $spacing-md;
+  margin-top: $spacing-xl;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-lg;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.footer-section {
+  h3, h4 {
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: $spacing-sm;
+
+  .logo-accent {
+    color: $primary-red;
+  }
+}
+
+.footer-subtitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.footer-description {
+  color: $text-secondary;
+  line-height: 1.6;
+  margin-bottom: $spacing-md;
+}
+
+.social-links {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: $primary-dark;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  color: $text-secondary;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $primary-red;
+    border-color: $primary-red;
+    color: $text-primary;
+    transform: translateY(-2px);
+  }
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: $spacing-xs;
+  }
+}
+
+.footer-link {
+  color: $text-secondary;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $primary-red;
+  }
+}
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    margin-bottom: $spacing-xs;
+    color: $text-secondary;
+
+    a {
+      color: $text-secondary;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $primary-red;
+      }
+    }
+  }
+}
+
+.contact-icon {
+  font-size: 1.25rem;
+}
+
+.footer-bottom {
+  padding-top: $spacing-md;
+  border-top: 1px solid $border-color;
+  text-align: center;
+  color: $text-muted;
+  font-size: 0.875rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}

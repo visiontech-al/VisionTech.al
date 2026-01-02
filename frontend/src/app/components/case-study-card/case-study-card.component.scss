@@ -1,0 +1,81 @@
+@import '../../../styles/_variables';
+
+.case-study-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-study-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  background: $secondary-dark;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.case-study-content {
+  padding: $spacing-md;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-study-client {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.case-study-section {
+  margin-bottom: $spacing-md;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $primary-red;
+  margin-bottom: $spacing-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-content {
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+.expand-button {
+  margin-top: $spacing-md;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid $primary-red;
+  color: $primary-red;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+
+  &:hover {
+    background: $primary-red;
+    color: $text-primary;
+  }
+}
+

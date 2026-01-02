@@ -1,0 +1,28 @@
+<div class="case-study-card card">
+  @if (caseStudy.imageUrl) {
+    <div class="case-study-image">
+      <img [src]="caseStudy.imageUrl" [alt]="caseStudy.clientName" loading="lazy" />
+    </div>
+  }
+  <div class="case-study-content">
+    <h3 class="case-study-client">{{ caseStudy.clientName }}</h3>
+    <div class="case-study-section">
+      <h4 class="section-title">Challenge</h4>
+      <p class="section-content">{{ caseStudy.challenge }}</p>
+    </div>
+    @if (isExpanded) {
+      <div class="case-study-section">
+        <h4 class="section-title">Solution</h4>
+        <p class="section-content">{{ caseStudy.solution }}</p>
+      </div>
+      <div class="case-study-section">
+        <h4 class="section-title">Results</h4>
+        <p class="section-content">{{ caseStudy.results }}</p>
+      </div>
+    }
+    <button class="expand-button" (click)="toggleExpand()">
+      {{ isExpanded ? 'Show Less' : 'Read More' }}
+    </button>
+  </div>
+</div>
+

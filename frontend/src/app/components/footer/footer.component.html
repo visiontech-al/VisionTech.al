@@ -1,0 +1,67 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <img src="../../../assets/LOGO_WonBVector.svg" alt="VisionTech.al" class="footer-logo-image"
+          width="100"
+          >
+          <h3 class="footer-title">VisionTech.al</h3>
+        </div>
+        
+        <p class="footer-description">
+          Empowering businesses with cutting-edge technology solutions, 
+          robust cybersecurity services, and comprehensive penetration testing.
+          Making the world a better place, one line of code at a time...
+        </p>
+        <div class="social-links">
+          @for (social of socialLinks; track social.name) {
+            <a
+              [href]="social.url"
+              [attr.aria-label]="social.name"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+            >
+              <span class="social-icon">{{ social.icon }}</span>
+            </a>
+          }
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="footer-subtitle">Quick Links</h4>
+        <ul class="footer-links">
+          @for (link of quickLinks; track link.path) {
+            <li>
+              <a [routerLink]="link.path" class="footer-link">{{ link.label }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="footer-subtitle">Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <span class="contact-icon">📍</span>
+            <span>Tirana, Albania</span>
+          </li>
+          <li>
+            <span class="contact-icon">📧</span>
+            <a href="mailto:visiontech.al.info&#64;gmail.com">visiontech.al.info&#64;gmail.com</a>
+          </li>
+          <li>
+            <span class="contact-icon">📱</span>
+            <a href="tel:+3554054281">+355 68 4054281</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ currentYear }} VisionTech.al. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+

@@ -1,0 +1,76 @@
+@import '../../../styles/_variables';
+
+.project-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  background: $secondary-dark;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.project-content {
+  padding: $spacing-md;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.project-description {
+  color: $text-secondary;
+  line-height: 1.6;
+  margin-bottom: $spacing-md;
+  flex: 1;
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-md;
+}
+
+.tech-tag {
+  padding: 0.25rem 0.75rem;
+  background: $primary-dark;
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  color: $text-secondary;
+}
+
+.project-link {
+  color: $primary-red;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #C91A4A;
+  }
+}
+

@@ -1,0 +1,48 @@
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+  ParseUUIDPipe,
+} from '@nestjs/common';
+import { DemosService } from './demos.service';
+import { CreateDemoDto } from './dto/create-demo.dto';
+import { UpdateDemoDto } from './dto/update-demo.dto';
+
+@Controller('api/demos')
+export class DemosController {
+  constructor(private readonly demosService: DemosService) {}
+
+  @Post()
+  create(@Body() createDemoDto: CreateDemoDto) {
+    return this.demosService.create(createDemoDto);
+  }
+
+  @Get()
+  findAll(@Query('category') category?: string) {
+    return this.demosService.findAll(category);
+  }
+
+  @Get(':id')
+  findOne(@Param('id', ParseUUIDPipe) id: string) {
+    return this.demosService.findOne(id);
+  }
+
+  @Patch(':id')
+  update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() updateDemoDto: UpdateDemoDto,
+  ) {
+    return this.demosService.update(id, updateDemoDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id', ParseUUIDPipe) id: string) {
+    return this.demosService.remove(id);
+  }
+}
+

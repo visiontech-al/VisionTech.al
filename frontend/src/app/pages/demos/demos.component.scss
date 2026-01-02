@@ -1,0 +1,160 @@
+@import '../../../styles/_variables';
+
+.demos-hero {
+  padding-top: 120px;
+}
+
+.demos-header {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: $spacing-sm;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 2.5rem;
+  }
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: $text-secondary;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.category-filters {
+  display: flex;
+  gap: $spacing-sm;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-lg;
+}
+
+.filter-button {
+  padding: 0.75rem 1.5rem;
+  background: $secondary-dark;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  color: $text-secondary;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $primary-red;
+    color: $text-primary;
+  }
+
+  &.active {
+    background: $primary-red;
+    border-color: $primary-red;
+    color: $text-primary;
+  }
+}
+
+.demos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: $spacing-md;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.demo-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.demo-thumbnail {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: $secondary-dark;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.demo-content {
+  padding: $spacing-md;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-category {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(224, 35, 78, 0.2);
+  color: $primary-red;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: $spacing-sm;
+  align-self: flex-start;
+}
+
+.demo-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.demo-description {
+  color: $text-secondary;
+  line-height: 1.6;
+  margin-bottom: $spacing-md;
+  flex: 1;
+}
+
+.demo-link {
+  margin-top: auto;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.loading,
+.error,
+.no-demos {
+  text-align: center;
+  padding: $spacing-xl;
+  color: $text-secondary;
+}
+
+.error {
+  color: $error;
+}
+
+.no-demos {
+  p {
+    margin-bottom: $spacing-sm;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
