@@ -13,7 +13,7 @@ import { DemosService } from './demos.service';
 import { CreateDemoDto } from './dto/create-demo.dto';
 import { UpdateDemoDto } from './dto/update-demo.dto';
 
-@Controller('api/demos')
+@Controller('demos')
 export class DemosController {
   constructor(private readonly demosService: DemosService) {}
 

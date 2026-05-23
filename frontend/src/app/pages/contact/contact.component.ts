@@ -48,7 +48,7 @@ export class ContactComponent {
           this.submitSuccess = true;
           this.contactForm.reset();
           this.isSubmitting = false;
-          
+
           // Hide success message after 5 seconds
           setTimeout(() => {
             this.submitSuccess = false;

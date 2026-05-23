@@ -12,7 +12,7 @@ import { CaseStudiesService } from './case-studies.service';
 import { CreateCaseStudyDto } from './dto/create-case-study.dto';
 import { UpdateCaseStudyDto } from './dto/update-case-study.dto';
 
-@Controller('api/case-studies')
+@Controller('case-studies')
 export class CaseStudiesController {
   constructor(private readonly caseStudiesService: CaseStudiesService) {}
 
