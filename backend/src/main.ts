@@ -6,26 +6,16 @@ import helmet from 'helmet';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Security
-  app.use(helmet());
-
-  // CORS configuration — FRONTEND_URL may be a comma-separated list of origins
-  const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:4200')
-    .split(',')
-    .map((o) => o.trim())
-    .filter(Boolean);
-
+  // CORS — must be registered before all other middleware
   app.enableCors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin (curl, Postman, server-to-server)
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error(`CORS: origin ${origin} not allowed`));
-      }
-    },
+    origin: ['https://visiontech.al', 'https://www.visiontech.al'],
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   });
+
+  // Security (after CORS so helmet headers don't interfere with preflight)
+  app.use(helmet());
 
   // Global validation pipe
   app.useGlobalPipes(
