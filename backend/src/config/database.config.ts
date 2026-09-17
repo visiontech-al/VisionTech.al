@@ -16,8 +16,12 @@ export const databaseConfig: TypeOrmModuleOptions = {
   password: process.env.DB_PASSWORD || 'postgres',
   database: process.env.DB_NAME || 'visiontech',
   entities: [Project, CaseStudy, Service, ContactSubmission, Demo],
-  migrations: ['src/database/migrations/*.ts'],
+  // __dirname-relative so it resolves under ts-node (src/*.ts) and the compiled build (dist/*.js)
+  migrations: [__dirname + '/../database/migrations/*{.ts,.js}'],
   synchronize: process.env.NODE_ENV === 'development',
+  // Apply pending migrations on boot in production, where synchronize is off.
+  // Without this the schema has to be migrated by hand on every deploy.
+  migrationsRun: process.env.NODE_ENV !== 'development',
   logging: process.env.NODE_ENV === 'development',
 };
 

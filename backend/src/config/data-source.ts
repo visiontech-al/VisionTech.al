@@ -16,7 +16,8 @@ export const AppDataSource = new DataSource({
   password: process.env.DB_PASSWORD || 'postgres',
   database: process.env.DB_NAME || 'visiontech',
   entities: [Project, CaseStudy, Service, ContactSubmission, Demo],
-  migrations: ['src/database/migrations/*.ts'],
+  // __dirname-relative so it resolves under ts-node (src/*.ts) and the compiled build (dist/*.js)
+  migrations: [__dirname + '/../database/migrations/*{.ts,.js}'],
   synchronize: false,
   logging: process.env.NODE_ENV === 'development',
 });

@@ -1,10 +1,16 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
+import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from './app.module';
 import helmet from 'helmet';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  // We sit behind Cloudflare -> nginx, so the socket address is always
+  // 127.0.0.1. Without this the rate limiter buckets every visitor under that
+  // one address and they throttle each other out of a single shared quota.
+  app.set('trust proxy', true);
 
   // CORS — must be registered before all other middleware
   app.enableCors({

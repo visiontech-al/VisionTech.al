@@ -17,10 +17,12 @@ import { ServicesModule } from './modules/services/services.module';
       envFilePath: '.env',
     }),
     TypeOrmModule.forRoot(databaseConfig),
+    // A single page view already costs 3-4 calls, so 10/min throttled real
+    // browsing. Contact submissions get their own tighter limit on the route.
     ThrottlerModule.forRoot([
       {
         ttl: 60000,
-        limit: 10,
+        limit: 60,
       },
     ]),
     ProjectsModule,
